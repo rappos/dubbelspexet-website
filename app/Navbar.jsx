@@ -1,14 +1,29 @@
 import Link from "next/link";
 
 export default function Navbar() {
+  const links = [
+    ["Hem", "/"],
+    ["På gång", "/pa-gang"],
+    ["Om", "/om"],
+    ["Intresseanmälan", "/intresseanmalan"],
+    ["Biljetter", "/biljetter"],
+    ["Kontakt", "/kontakt"],
+  ];
+
   return (
-    <nav className="flex justify-center sticky top-0 w-screen text-lg space-x-5 bg-teal-400">
-      <Link href="/">Hem</Link>
-      <Link href="/pa-gang">På gång</Link>
-      <Link href="/om">Om</Link>
-      <Link href="/intresseanmalan">Intresseanmälan</Link>
-      <Link href="/biljetter">Biljetter</Link>
-      <Link href="/kontakt">Kontakt</Link>
+    <nav
+      className="top-0 w-screen h-16 m-0
+                    flex flex-row items-center justify-center
+                    bg-teal-600 text-white shadow-lg">
+      {links.map((l) => {
+        return <NavbarButton title={l[0]} link={l[1]} key={l[0]} />;
+      })}
     </nav>
   );
 }
+
+const NavbarButton = ({ title, link }) => (
+  <div className="mx-2">
+    <Link href={link}>{title}</Link>
+  </div>
+);
