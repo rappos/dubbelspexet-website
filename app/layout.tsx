@@ -1,4 +1,6 @@
 import "./globals.css";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export const metadata = {
   title: "Dubbelspexet",
@@ -12,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body>{children}</body>
+      
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
